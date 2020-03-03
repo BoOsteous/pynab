@@ -9,7 +9,7 @@ from nabcommon import nabservice
 
 class NabClockd(nabservice.NabService):
     DAEMON_PIDFILE = "/run/nabclockd.pid"
-    SKIP_WAKEUP_SOUNDS_AFTER_STARTUP_SEC = 3
+    SKIP_WAKEUP_SOUNDS_AFTER_STARTUP_SEC = 300
 
     def __init__(self):
         super().__init__()
