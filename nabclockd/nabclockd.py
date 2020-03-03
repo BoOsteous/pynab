@@ -104,25 +104,16 @@ class NabClockd(nabservice.NabService):
                 and wakeup_min is not None
                 and sleep_min is not None
             ):
-                if (wakeup_hour, wakeup_min) < (
-                    sleep_hour,
-                    sleep_min,
-                ):
+                if (wakeup_hour, wakeup_min) < (sleep_hour, sleep_min,):
                     should_sleep = (now.hour, now.minute) < (
                         wakeup_hour,
                         wakeup_min,
-                    ) or (now.hour, now.minute) >= (
-                        sleep_hour,
-                        sleep_min,
-                    )
+                    ) or (now.hour, now.minute) >= (sleep_hour, sleep_min,)
                 else:
                     should_sleep = (now.hour, now.minute) < (
                         wakeup_hour,
                         wakeup_min,
-                    ) and (now.hour, now.minute) >= (
-                        sleep_hour,
-                        sleep_min,
-                    )
+                    ) and (now.hour, now.minute) >= (sleep_hour, sleep_min,)
             if (
                 should_sleep is not None
                 and self.asleep is not None
@@ -160,7 +151,6 @@ class NabClockd(nabservice.NabService):
                                 self.last_chime = None
                             self.current_tz = current_tz
                         response = self.clock_response(now)
-                        logging.debug(f"response -> {response}")
                         for r in response:
                             if r == "sleep":
                                 elapsed_time = (
