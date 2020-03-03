@@ -45,7 +45,9 @@ class SettingsView(TemplateView):
             config.sleep_hour_tuesday = hour
             config.sleep_min_tuesday = min
         if ("wakeup_time_wednesday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["wakeup_time_wednesday"])
+            (hour, min) = self.parse_time(
+                request.POST["wakeup_time_wednesday"]
+            )
             config.wakeup_hour_wednesday = hour
             config.wakeup_min_wednesday = min
         if ("sleep_time_wednesday") in request.POST:
@@ -89,9 +91,13 @@ class SettingsView(TemplateView):
             if selected_tz in common_timezones:
                 self.set_system_tz(selected_tz)
         if "play_wakeup_and_sleep_sounds" in request.POST:
-            config.play_wakeup_and_sleep_sounds = request.POST["play_wakeup_and_sleep_sounds"] == "true"
+            config.play_wakeup_and_sleep_sounds = (
+                request.POST["play_wakeup_and_sleep_sounds"] == "true"
+            )
         if "settings_per_day" in request.POST:
-            config.settings_per_day = request.POST["settings_per_day"] == "true"
+            config.settings_per_day = (
+                request.POST["settings_per_day"] == "true"
+            )
         config.save()
         NabClockd.signal_daemon()
         context = self.get_context_data(**kwargs)

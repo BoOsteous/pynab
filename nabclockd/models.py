@@ -61,7 +61,7 @@ class Config(singleton_model.SingletonModel):
             validators.MaxValueValidator(59),
         ],
     )
-    # Tuesday    
+    # Tuesday
     wakeup_hour_tuesday = models.IntegerField(
         default=7,
         validators=[
@@ -90,7 +90,7 @@ class Config(singleton_model.SingletonModel):
             validators.MaxValueValidator(59),
         ],
     )
-    # Wednesday   
+    # Wednesday
     wakeup_hour_wednesday = models.IntegerField(
         default=7,
         validators=[
@@ -119,7 +119,7 @@ class Config(singleton_model.SingletonModel):
             validators.MaxValueValidator(59),
         ],
     )
-    # Thursday   
+    # Thursday
     wakeup_hour_thursday = models.IntegerField(
         default=7,
         validators=[
@@ -148,7 +148,7 @@ class Config(singleton_model.SingletonModel):
             validators.MaxValueValidator(59),
         ],
     )
-    # Friday    
+    # Friday
     wakeup_hour_friday = models.IntegerField(
         default=7,
         validators=[
@@ -177,7 +177,7 @@ class Config(singleton_model.SingletonModel):
             validators.MaxValueValidator(59),
         ],
     )
-    # Saturday    
+    # Saturday
     wakeup_hour_saturday = models.IntegerField(
         default=7,
         validators=[
@@ -205,8 +205,8 @@ class Config(singleton_model.SingletonModel):
             validators.MinValueValidator(0),
             validators.MaxValueValidator(59),
         ],
-    )    
-    # Sunday  
+    )
+    # Sunday
     wakeup_hour_sunday = models.IntegerField(
         default=7,
         validators=[
@@ -238,5 +238,6 @@ class Config(singleton_model.SingletonModel):
     chime_hour = models.BooleanField(default=True)
     play_wakeup_and_sleep_sounds = models.BooleanField(default=True)
     settings_per_day = models.BooleanField(default=False)
+
     class Meta:
         app_label = "nabclockd"
