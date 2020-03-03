@@ -9,7 +9,7 @@ from nabcommon import nabservice
 
 class NabClockd(nabservice.NabService):
     DAEMON_PIDFILE = "/run/nabclockd.pid"
-    SKIP_WAKEUP_SOUNDS_AFTER_STARTUP_SEC = 300
+    SKIP_WAKEUP_SOUNDS_AFTER_STARTUP_SEC = 3
 
     def __init__(self):
         super().__init__()
@@ -99,29 +99,29 @@ class NabClockd(nabservice.NabService):
                 sleep_min = self.config.sleep_min
 
             if (
-                self.config.wakeup_hour is not None
-                and self.config.sleep_hour is not None
-                and self.config.wakeup_min is not None
-                and self.config.sleep_min is not None
+                wakeup_hour is not None
+                and sleep_hour is not None
+                and wakeup_min is not None
+                and sleep_min is not None
             ):
-                if (self.config.wakeup_hour, self.config.wakeup_min) < (
-                    self.config.sleep_hour,
-                    self.config.sleep_min,
+                if (wakeup_hour, wakeup_min) < (
+                    sleep_hour,
+                    sleep_min,
                 ):
                     should_sleep = (now.hour, now.minute) < (
-                        self.config.wakeup_hour,
-                        self.config.wakeup_min,
+                        wakeup_hour,
+                        wakeup_min,
                     ) or (now.hour, now.minute) >= (
-                        self.config.sleep_hour,
-                        self.config.sleep_min,
+                        sleep_hour,
+                        sleep_min,
                     )
                 else:
                     should_sleep = (now.hour, now.minute) < (
-                        self.config.wakeup_hour,
-                        self.config.wakeup_min,
+                        wakeup_hour,
+                        wakeup_min,
                     ) and (now.hour, now.minute) >= (
-                        self.config.sleep_hour,
-                        self.config.sleep_min,
+                        sleep_hour,
+                        sleep_min,
                     )
             if (
                 should_sleep is not None
@@ -160,6 +160,7 @@ class NabClockd(nabservice.NabService):
                                 self.last_chime = None
                             self.current_tz = current_tz
                         response = self.clock_response(now)
+                        logging.debug(f"response -> {response}")
                         for r in response:
                             if r == "sleep":
                                 elapsed_time = (
