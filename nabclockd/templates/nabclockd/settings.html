@@ -13,7 +13,6 @@
           <input name="chime_hour" type="hidden" value="{% if config.chime_hour %}true{% else %}false{% endif %}" />
         </div>
       </div>
-************************
       <div class="form-group row">
         <label for="distinctTimesBtn" class="col-6 col-form-label">{% trans "Custom hours for each day of the week" %}</label>
         <div class="col-6">
@@ -21,7 +20,6 @@
           <input name="settings_per_day" type="hidden" value="{% if config.settings_per_day %}true{% else %}false{% endif %}" />
         </div>
       </div>      
-************************      
       <div id="commonWakeUpTimes" style="{% if config.settings_per_day %}display:none{% endif %}">      
         <div class="form-group row">
           <label for="wakeupTime" class="col-6 col-form-label">{% trans "Wake-up time" %}</label>
@@ -46,7 +44,6 @@
           </div>
         </div>
       </div>
-************************
       <div id="distinctWakeUpTimes" style="{% if not config.settings_per_day %}display:none{% endif %}">
         <div class="form-group row">
           <label for="wakeupTimeMonday" class="col-4 col-form-label">{% trans "Monday - Wake-up / Sleep" %}</label>
@@ -182,7 +179,6 @@
           </div>          
         </div>
       </div>      
-************************
       <div class="form-group row">
         <label for="timezoneSel" class="col-6 col-form-label">{% trans "Time zone" %}</label>
         <div class="col-6">
@@ -193,7 +189,6 @@
             </select>
         </div>
       </div>
-************************	  
       <div class="form-group row">
         <label for="playSoundsBtn" class="col-6 col-form-label">{% trans "Play wake up and sleep sound" %}</label>
         <div class="col-6">
@@ -201,7 +196,6 @@
           <input name="play_wakeup_and_sleep_sounds" type="hidden" value="{% if config.play_wakeup_and_sleep_sounds %}true{% else %}false{% endif %}" />
         </div>
       </div>
-************************	  
     </div>
     <div class="card-footer">
       <div class="row mb-2">
@@ -222,7 +216,6 @@
       saveBtn.removeClass('disabled');
       resetBtn.removeClass('disabled');
     });
-************************	
     form.find("button[id='distinctTimesBtn']").on('click', function() {
       var isBtnActive = (!(form.find("button[id='distinctTimesBtn']").hasClass('active')))
       if (isBtnActive ) {
@@ -233,7 +226,6 @@
         form.find("div[id='commonWakeUpTimes']").show();
       }
     });
-************************	
     form.find('.clockpicker').clockpicker();
     form.find('input').on('change', function() {
       saveBtn.removeClass('disabled');
@@ -244,7 +236,6 @@
       resetBtn.removeClass('disabled');
     });
     form.on('submit', function() {
-************************	
       form.find("input[name='chime_hour']").val(form.find("button[id='chimeHoursBtn']").hasClass('active'));
       form.find("input[name='play_wakeup_and_sleep_sounds']").val(form.find("button[id='playSoundsBtn']").hasClass('active'));
       form.find("input[name='settings_per_day']").val(form.find("button[id='distinctTimesBtn']").hasClass('active'));
