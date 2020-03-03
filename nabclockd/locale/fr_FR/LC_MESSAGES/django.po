@@ -68,7 +68,6 @@ msgstr "Dimanche - Réveil / Coucher"
 #: templates/nabclockd/settings.html:61 templates/nabclockd/settings.html:81
 #: templates/nabclockd/settings.html:101 templates/nabclockd/settings.html:121
 #: templates/nabclockd/settings.html:141 templates/nabclockd/settings.html:161
-#: templates/nabclockd/settings.html:181
 msgid "Sleep"
 msgstr "Coucher"
 

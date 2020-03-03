@@ -83,7 +83,7 @@ class SettingsView(TemplateView):
         if ("sleep_time_sunday") in request.POST:
             (hour, min) = self.parse_time(request.POST["sleep_time_sunday"])
             config.sleep_hour_sunday = hour
-            config.sleep_min_sunday = min                                                                        
+            config.sleep_min_sunday = min
         if "timezone" in request.POST:
             selected_tz = request.POST["timezone"]
             if selected_tz in common_timezones:

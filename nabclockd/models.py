@@ -32,7 +32,6 @@ class Config(singleton_model.SingletonModel):
             validators.MaxValueValidator(59),
         ],
     )
-
     # Monday
     wakeup_hour_monday = models.IntegerField(
         default=7,
@@ -62,7 +61,6 @@ class Config(singleton_model.SingletonModel):
             validators.MaxValueValidator(59),
         ],
     )
-
     # Tuesday    
     wakeup_hour_tuesday = models.IntegerField(
         default=7,
@@ -92,7 +90,6 @@ class Config(singleton_model.SingletonModel):
             validators.MaxValueValidator(59),
         ],
     )
-
     # Wednesday   
     wakeup_hour_wednesday = models.IntegerField(
         default=7,
@@ -122,7 +119,6 @@ class Config(singleton_model.SingletonModel):
             validators.MaxValueValidator(59),
         ],
     )
-
     # Thursday   
     wakeup_hour_thursday = models.IntegerField(
         default=7,
@@ -152,7 +148,6 @@ class Config(singleton_model.SingletonModel):
             validators.MaxValueValidator(59),
         ],
     )
-
     # Friday    
     wakeup_hour_friday = models.IntegerField(
         default=7,
@@ -182,7 +177,6 @@ class Config(singleton_model.SingletonModel):
             validators.MaxValueValidator(59),
         ],
     )
-
     # Saturday    
     wakeup_hour_saturday = models.IntegerField(
         default=7,
@@ -212,7 +206,6 @@ class Config(singleton_model.SingletonModel):
             validators.MaxValueValidator(59),
         ],
     )    
-
     # Sunday  
     wakeup_hour_sunday = models.IntegerField(
         default=7,
