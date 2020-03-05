@@ -159,7 +159,7 @@ class NabClockd(nabservice.NabService):
                                     - self.service_boot_time
                                 ).total_seconds()
                                 if (
-                                    Not self.sleep_sound_played
+                                    not self.sleep_sound_played
                                     and self.config.play_wakeup_and_sleep_sounds
                                     and startup_elapsed_time
                                     > NabClockd.SKIP_WAKEUP_SOUNDS_SEC
@@ -167,7 +167,8 @@ class NabClockd(nabservice.NabService):
                                     self.sleep_sound_played = True
                                     packet = (
                                         '{"type":"message",'
-                                        '"body":[{"audio":["sleep/*.mp3"],"choreography":null}],'
+                                        '"body":[{"audio":["sleep/*.mp3"],'
+                                        '"choreography":null}],'
                                         '"request_id":"sleep_sound"}\r\n'
                                     )
                                     self.writer.write(packet.encode("utf8"))
@@ -191,8 +192,8 @@ class NabClockd(nabservice.NabService):
                                 self.last_chime = None
 
                         if (
-                            Not self.asleep
-                            and Not self.wakeup_sound_played
+                            not self.asleep
+                            and not self.wakeup_sound_played
                             and self.config.play_wakeup_and_sleep_sounds
                         ):
                             self.wakeup_sound_played = True
@@ -206,7 +207,8 @@ class NabClockd(nabservice.NabService):
                             ):
                                 packet = (
                                     '{"type":"message",'
-                                    '"body":[{"audio":["wakeup/*.mp3"],"choreography":null}],'
+                                    '"body":[{"audio":["wakeup/*.mp3"],'
+                                    '"choreography":null}],'
                                     '"request_id":"wakeup_sound"}\r\n'
                                 )
                                 self.writer.write(packet.encode("utf8"))
