@@ -7,158 +7,326 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('nabclockd', '0001_initial'),
+        ("nabclockd", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='config',
-            name='play_wakeup_and_sleep_sounds',
+            model_name="config",
+            name="play_wakeup_and_sleep_sounds",
             field=models.BooleanField(default=True),
         ),
         migrations.AddField(
-            model_name='config',
-            name='settings_per_day',
+            model_name="config",
+            name="settings_per_day",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_hour_friday',
-            field=models.IntegerField(default=22, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="sleep_hour_friday",
+            field=models.IntegerField(
+                default=22,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_hour_monday',
-            field=models.IntegerField(default=22, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="sleep_hour_monday",
+            field=models.IntegerField(
+                default=22,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_hour_saturday',
-            field=models.IntegerField(default=22, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="sleep_hour_saturday",
+            field=models.IntegerField(
+                default=22,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_hour_sunday',
-            field=models.IntegerField(default=22, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="sleep_hour_sunday",
+            field=models.IntegerField(
+                default=22,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_hour_thursday',
-            field=models.IntegerField(default=22, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="sleep_hour_thursday",
+            field=models.IntegerField(
+                default=22,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_hour_tuesday',
-            field=models.IntegerField(default=22, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="sleep_hour_tuesday",
+            field=models.IntegerField(
+                default=22,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_hour_wednesday',
-            field=models.IntegerField(default=22, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="sleep_hour_wednesday",
+            field=models.IntegerField(
+                default=22,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_min_friday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="sleep_min_friday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_min_monday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="sleep_min_monday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_min_saturday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="sleep_min_saturday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_min_sunday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="sleep_min_sunday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_min_thursday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="sleep_min_thursday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_min_tuesday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="sleep_min_tuesday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='sleep_min_wednesday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="sleep_min_wednesday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_hour_friday',
-            field=models.IntegerField(default=7, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="wakeup_hour_friday",
+            field=models.IntegerField(
+                default=7,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_hour_monday',
-            field=models.IntegerField(default=7, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="wakeup_hour_monday",
+            field=models.IntegerField(
+                default=7,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_hour_saturday',
-            field=models.IntegerField(default=7, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="wakeup_hour_saturday",
+            field=models.IntegerField(
+                default=7,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_hour_sunday',
-            field=models.IntegerField(default=7, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="wakeup_hour_sunday",
+            field=models.IntegerField(
+                default=7,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_hour_thursday',
-            field=models.IntegerField(default=7, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="wakeup_hour_thursday",
+            field=models.IntegerField(
+                default=7,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_hour_tuesday',
-            field=models.IntegerField(default=7, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="wakeup_hour_tuesday",
+            field=models.IntegerField(
+                default=7,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_hour_wednesday',
-            field=models.IntegerField(default=7, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(23)]),
+            model_name="config",
+            name="wakeup_hour_wednesday",
+            field=models.IntegerField(
+                default=7,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(23),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_min_friday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="wakeup_min_friday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_min_monday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="wakeup_min_monday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_min_saturday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="wakeup_min_saturday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_min_sunday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="wakeup_min_sunday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_min_thursday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="wakeup_min_thursday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_min_tuesday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="wakeup_min_tuesday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
         migrations.AddField(
-            model_name='config',
-            name='wakeup_min_wednesday',
-            field=models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(59)]),
+            model_name="config",
+            name="wakeup_min_wednesday",
+            field=models.IntegerField(
+                default=0,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(59),
+                ],
+            ),
         ),
     ]

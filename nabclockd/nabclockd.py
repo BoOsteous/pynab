@@ -9,7 +9,7 @@ from nabcommon import nabservice
 
 class NabClockd(nabservice.NabService):
     DAEMON_PIDFILE = "/run/nabclockd.pid"
-    SKIP_WAKEUP_SOUNDS_AFTER_STARTUP_SEC = 300
+    SKIP_WAKEUP_SOUNDS_SEC = 300
 
     def __init__(self):
         super().__init__()
@@ -81,7 +81,8 @@ class NabClockd(nabservice.NabService):
             should_sleep = None
 
             if self.config.settings_per_day:
-                # Until 3am, we keep the same day name to obtain the setting from the current (previous) day
+                # Until 3am, we keep the same day name
+                # to obtain the setting from the current (previous) day
                 curDateValue = datetime.datetime.now() + datetime.timedelta(
                     hours=-3
                 )
@@ -153,15 +154,15 @@ class NabClockd(nabservice.NabService):
                         response = self.clock_response(now)
                         for r in response:
                             if r == "sleep":
-                                elapsed_time = (
+                                startup_elapsed_time = (
                                     datetime.datetime.now()
                                     - self.service_boot_time
                                 ).total_seconds()
                                 if (
-                                    self.sleep_sound_played == False
+                                    Not self.sleep_sound_played
                                     and self.config.play_wakeup_and_sleep_sounds
-                                    and elapsed_time
-                                    > NabClockd.SKIP_WAKEUP_SOUNDS_AFTER_STARTUP_SEC
+                                    and startup_elapsed_time
+                                    > NabClockd.SKIP_WAKEUP_SOUNDS_SEC
                                 ):
                                     self.sleep_sound_played = True
                                     packet = (
@@ -190,18 +191,18 @@ class NabClockd(nabservice.NabService):
                                 self.last_chime = None
 
                         if (
-                            self.asleep == False
-                            and self.wakeup_sound_played == False
+                            Not self.asleep
+                            and Not self.wakeup_sound_played
                             and self.config.play_wakeup_and_sleep_sounds
                         ):
                             self.wakeup_sound_played = True
-                            elapsed_time = (
+                            startup_elapsed_time = (
                                 datetime.datetime.now()
                                 - self.service_boot_time
                             ).total_seconds()
                             if (
-                                elapsed_time
-                                > NabClockd.SKIP_WAKEUP_SOUNDS_AFTER_STARTUP_SEC
+                                startup_elapsed_time
+                                > NabClockd.SKIP_WAKEUP_SOUNDS_SEC
                             ):
                                 packet = (
                                     '{"type":"message",'
