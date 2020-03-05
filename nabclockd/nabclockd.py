@@ -82,7 +82,7 @@ class NabClockd(nabservice.NabService):
 
             if self.config.settings_per_day:
                 # Until 3am, we keep the same day name
-                # to obtain the setting from the current (previous) day
+                # to obtain the settings from the current (previous) day
                 curDateValue = datetime.datetime.now() + datetime.timedelta(
                     hours=-3
                 )
@@ -160,7 +160,8 @@ class NabClockd(nabservice.NabService):
                                 ).total_seconds()
                                 if (
                                     not self.sleep_sound_played
-                                    and self.config.play_wakeup_and_sleep_sounds
+                                    and 
+                                    self.config.play_wakeup_and_sleep_sounds
                                     and startup_elapsed_time
                                     > NabClockd.SKIP_WAKEUP_SOUNDS_SEC
                                 ):
