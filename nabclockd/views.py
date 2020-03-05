@@ -8,6 +8,15 @@ from .nabclockd import NabClockd
 
 class SettingsView(TemplateView):
     template_name = "nabclockd/settings.html"
+    daysOfTheWeek = [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday",
+    ]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -28,64 +37,19 @@ class SettingsView(TemplateView):
             (hour, min) = self.parse_time(request.POST["sleep_time"])
             config.sleep_hour = hour
             config.sleep_min = min
-        if ("wakeup_time_monday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["wakeup_time_monday"])
-            config.wakeup_hour_monday = hour
-            config.wakeup_min_monday = min
-        if ("sleep_time_monday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["sleep_time_monday"])
-            config.sleep_hour_monday = hour
-            config.sleep_min_monday = min
-        if ("wakeup_time_tuesday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["wakeup_time_tuesday"])
-            config.wakeup_hour_tuesday = hour
-            config.wakeup_min_tuesday = min
-        if ("sleep_time_tuesday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["sleep_time_tuesday"])
-            config.sleep_hour_tuesday = hour
-            config.sleep_min_tuesday = min
-        if ("wakeup_time_wednesday") in request.POST:
-            (hour, min) = self.parse_time(
-                request.POST["wakeup_time_wednesday"]
-            )
-            config.wakeup_hour_wednesday = hour
-            config.wakeup_min_wednesday = min
-        if ("sleep_time_wednesday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["sleep_time_wednesday"])
-            config.sleep_hour_wednesday = hour
-            config.sleep_min_wednesday = min
-        if ("wakeup_time_thursday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["wakeup_time_thursday"])
-            config.wakeup_hour_thursday = hour
-            config.wakeup_min_thursday = min
-        if ("sleep_time_thursday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["sleep_time_thursday"])
-            config.sleep_hour_thursday = hour
-            config.sleep_min_thursday = min
-        if ("wakeup_time_friday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["wakeup_time_friday"])
-            config.wakeup_hour_friday = hour
-            config.wakeup_min_friday = min
-        if ("sleep_time_friday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["sleep_time_friday"])
-            config.sleep_hour_friday = hour
-            config.sleep_min_friday = min
-        if ("wakeup_time_saturday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["wakeup_time_saturday"])
-            config.wakeup_hour_saturday = hour
-            config.wakeup_min_saturday = min
-        if ("sleep_time_saturday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["sleep_time_saturday"])
-            config.sleep_hour_saturday = hour
-            config.sleep_min_saturday = min
-        if ("wakeup_time_sunday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["wakeup_time_sunday"])
-            config.wakeup_hour_sunday = hour
-            config.wakeup_min_sunday = min
-        if ("sleep_time_sunday") in request.POST:
-            (hour, min) = self.parse_time(request.POST["sleep_time_sunday"])
-            config.sleep_hour_sunday = hour
-            config.sleep_min_sunday = min
+        for dayName in SettingsView.daysOfTheWeek:
+            if ("wakeup_time_" + dayName) in request.POST:
+                (hour, min) = self.parse_time(
+                    request.POST["wakeup_time_" + dayName]
+                )
+                setattr(config, "wakeup_hour_" + dayName, hour)
+                setattr(config, "wakeup_min_" + dayName, min)
+            if ("sleep_time_" + dayName) in request.POST:
+                (hour, min) = self.parse_time(
+                    request.POST["sleep_time_" + dayName]
+                )
+                setattr(config, "sleep_hour_" + dayName, hour)
+                setattr(config, "sleep_min_" + dayName, min)
         if "timezone" in request.POST:
             selected_tz = request.POST["timezone"]
             if selected_tz in common_timezones:
