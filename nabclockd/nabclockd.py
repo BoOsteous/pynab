@@ -160,7 +160,7 @@ class NabClockd(nabservice.NabService):
                                 ).total_seconds()
                                 if (
                                     not self.sleep_sound_played
-                                    and 
+                                    and
                                     self.config.play_wakeup_and_sleep_sounds
                                     and startup_elapsed_time
                                     > NabClockd.SKIP_WAKEUP_SOUNDS_SEC
