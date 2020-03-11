@@ -174,7 +174,6 @@ class NabClockd(nabservice.NabService):
                                     )
                                     self.writer.write(packet.encode("utf8"))
                                     await self.writer.drain()
-                                    await asyncio.sleep(3)
                                 else:
                                     self.writer.write(b'{"type":"sleep"}\r\n')
                                     await self.writer.drain()
@@ -194,6 +193,7 @@ class NabClockd(nabservice.NabService):
 
                         if (
                             not self.asleep
+                            and self.asleep is not None
                             and not self.wakeup_sound_played
                             and self.config.play_wakeup_and_sleep_sounds
                         ):
@@ -235,6 +235,7 @@ class NabClockd(nabservice.NabService):
             "type" in packet
             and packet["type"] == "state"
             and "state" in packet
+            and packet["state"] != "playing"
         ):
             async with self.loop_cv:
                 self.asleep = packet["state"] == "asleep"
